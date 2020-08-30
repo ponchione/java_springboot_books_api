@@ -1,3 +1,3 @@
-Basic Springboot API using Postgres and Docker
+Basic Springboot API for cataloging books into a Postgres database
 
 Not finished
