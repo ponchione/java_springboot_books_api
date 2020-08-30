@@ -1,11 +1,11 @@
 package com.myproj.books.controller;
 
 import com.myproj.books.DTO.BookDTO;
+import com.myproj.books.exception.BookNotFoundException;
 import com.myproj.books.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,8 +25,18 @@ public class BookController {
     }
 
     @GetMapping("/book/{id}")
-    public BookDTO getBookById(@PathVariable("id") final Long id) {
+    public ResponseEntity<BookDTO> getBookById(@PathVariable(value = "id") final Long id) throws BookNotFoundException {
         return bookService.getBookById(id);
+    }
+
+    @PostMapping("/book/add")
+    public void addBook(@RequestBody final BookDTO bookDTO) {
+        bookService.addBook(bookDTO);
+    }
+
+    @PostMapping("/book/bulk")
+    public void addBooks(@RequestBody final List<BookDTO> bookDTOs) {
+        bookService.addBooks(bookDTOs);
     }
 
 }

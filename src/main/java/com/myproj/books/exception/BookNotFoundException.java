@@ -9,4 +9,8 @@ public class BookNotFoundException extends Exception{
     public BookNotFoundException(final String message) {
         super(message);
     }
+
+    public BookNotFoundException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
 }

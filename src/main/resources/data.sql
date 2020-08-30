@@ -2,6 +2,7 @@
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; --Needed to auto gen uuid
 
+
 INSERT INTO books (id, book_name, author, isbn)
 
 VALUES
