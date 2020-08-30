@@ -32,7 +32,7 @@ public class BookServiceImpl implements BookService {
     public ResponseEntity<BookDTO> getBookById(final Long id) throws BookNotFoundException {
         final BookDTO dto = mapper.bookToBookDTO(
                 bookRepo.findById(id).orElseThrow(
-                        () -> new BookNotFoundException("Book could not be found this id: " + id)
+                        () -> new BookNotFoundException("Book could not be found at this id: " + id)
                 )
         );
 
@@ -48,5 +48,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public void addBooks(final List<BookDTO> bookDTOs) {
         bookRepo.saveAll(mapper.bookDTOsToBooks(bookDTOs));
+    }
+
+    @Override
+    public void deleteBook(final Long id) {
+        bookRepo.delete(bookRepo.findById(id).get());
+    }
+
+    @Override
+    public void deleteAllBooks() {
+        bookRepo.deleteAll();
     }
 }

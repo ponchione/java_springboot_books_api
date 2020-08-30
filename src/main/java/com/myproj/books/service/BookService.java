@@ -12,4 +12,6 @@ public interface BookService {
     ResponseEntity<BookDTO> getBookById(final Long id) throws BookNotFoundException;
     void addBook(final BookDTO bookDTO);
     void addBooks(final List<BookDTO> bookDTOs);
+    void deleteBook(final Long id);
+    void deleteAllBooks();
 }

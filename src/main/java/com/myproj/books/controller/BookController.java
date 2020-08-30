@@ -39,4 +39,15 @@ public class BookController {
         bookService.addBooks(bookDTOs);
     }
 
+    @DeleteMapping("/book/delete/{id}")
+    public void deleteBook(@PathVariable final Long id) {
+        bookService.deleteBook(id);
+    }
+
+    @DeleteMapping("/book/delete/all")
+    public void deleteAllBooks() {
+        bookService.deleteAllBooks();
+    }
+
+
 }
