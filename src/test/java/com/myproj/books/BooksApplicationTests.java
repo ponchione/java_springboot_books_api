@@ -1,6 +1,8 @@
 package com.myproj.books;
 
-//@SpringBootTest
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
 class BooksApplicationTests {
 
 
